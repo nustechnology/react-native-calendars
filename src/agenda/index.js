@@ -330,8 +330,7 @@ export default class AgendaView extends Component {
         }
       });
     }
-    const key = this.props.selected.toString('yyyy-MM-dd');
-    return { ...markings, [key]: { ...(markings[key] || {}), ...{ selected: true } } };
+    return { ...markings, [this.props.selected]: { ...(markings[this.props.selected] || {}), ...{ selected: true } } };
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -347,6 +346,10 @@ export default class AgendaView extends Component {
         nextState.firstResevationLoad !== this.state.firstResevationLoad ||
         nextState.selectedDay !== this.state.selectedDay ||
         nextState.topDay !== this.state.topDay) {
+        return true
+      }
+      
+      if (nextProps.selected !== this.props.selected) {
         return true
       }
       return false
