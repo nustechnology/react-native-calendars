@@ -513,7 +513,7 @@ export default class AgendaView extends Component {
                       { left: marginLeft }, { height: height }]}
                         key={reminder.items[0].id}>
                         <Text style={[styles.title, styles.textBold]} numberOfLines={1}>{time}</Text>
-                        <Text style={[styles.title, styles.textMedium]} numberOfLines={1} >{reminder.items.length + ' reminders'}</Text>
+                        <Text style={[styles.title, styles.textMedium]} numberOfLines={1} >{this.props.strings('calendar.reminderText', {count: reminder.items.length})}</Text>
                       </TouchableOpacity>
                     </TouchableWithoutFeedback>
                   )
