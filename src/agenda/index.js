@@ -320,12 +320,20 @@ export default class AgendaView extends Component {
     }
   }
 
+  isObjectEmpty(obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  }
+
   generateMarkings() {
     let markings = this.props.markedDates;
     if (!markings) {
       markings = {};
       Object.keys(this.props.items || {}).forEach(key => {
-        if (this.props.items[key] && this.props.items[key].length) {
+        if (this.props.items[key] && this.props.items[key].length > 0 && !this.isObjectEmpty(this.props.items[key][0])) {
           markings[key] = { marked: true };
         }
       });
@@ -348,7 +356,7 @@ export default class AgendaView extends Component {
         nextState.topDay !== this.state.topDay) {
         return true
       }
-      
+
       if (nextProps.selected !== this.props.selected) {
         return true
       }
