@@ -370,6 +370,10 @@ export default class AgendaView extends Component {
     this.topMostPosition = 0
   }
 
+  scrollToDay() {
+    this.calendar.scrollToDay(this.props.selected, this.calendarOffset(), false);
+  }
+
   render() {
     const agendaHeight = Math.max(0, this.viewHeight - HEADER_HEIGHT);
     const weekDaysNames = dateutils.weekDayNames(this.props.firstDay);
