@@ -436,7 +436,6 @@ export default class AgendaView extends Component {
         </View>
       );
     }
-
     return (
       <View onLayout={this.onLayout} style={[this.props.style, { flex: 1, overflow: 'hidden' }]}>
         <ScrollView
@@ -486,8 +485,8 @@ export default class AgendaView extends Component {
                         <TouchableOpacity onPress={() => this.props.onPressJob(reminder.items[0])} style={[styles.containerItemInfoJob, { top: marginTop },
                         { left: marginLeft }, { height: height }]}
                           key={reminder.items[0].id}>
-                          <Text style={[styles.title, styles.textBold]} numberOfLines={1}>{time}</Text>
-                          <Text style={[styles.title, styles.textMedium]} numberOfLines={1}>{reminder.items[0].title + '...'}</Text>
+                          <Text style={[styles.title, styles.textBold, this.props.boldTextFont]} numberOfLines={1}>{time}</Text>
+                          <Text style={[styles.title, styles.textMedium, this.props.mediumTextFont]} numberOfLines={1}>{reminder.items[0].title + '...'}</Text>
                         </TouchableOpacity>
                       </TouchableWithoutFeedback>
                     )
@@ -497,9 +496,9 @@ export default class AgendaView extends Component {
                         <TouchableOpacity onPress={() => this.props.onPressJob(reminder.items[0])} style={[styles.containerItemInfoJob, { top: marginTop },
                         { left: marginLeft }, { height: height }]}
                           key={reminder.items[0].id}>
-                          <Text style={[styles.title, styles.textBold]} numberOfLines={1}>{time}</Text>
-                          <Text style={[styles.title, styles.textMedium]} numberOfLines={1}>{reminder.items[0].title}</Text>
-                          <Text numberOfLines={2} style={[styles.title, styles.textMedium, { fontSize: 12 }]}>{reminder.items[0].location}</Text>
+                          <Text style={[styles.title, styles.textBold, this.props.boldTextFont]} numberOfLines={1}>{time}</Text>
+                          <Text style={[styles.title, styles.textMedium, this.props.mediumTextFont]} numberOfLines={1}>{reminder.items[0].title}</Text>
+                          <Text numberOfLines={2} style={[styles.title, styles.textMedium, { fontSize: 12 }, this.props.mediumTextFont]}>{reminder.items[0].location}</Text>
                         </TouchableOpacity>
                       </TouchableWithoutFeedback>
                     )
@@ -512,8 +511,8 @@ export default class AgendaView extends Component {
                       <TouchableOpacity onPress={() => this.props.onPressReminder(reminder)} style={[styles.containerItemInfoJob, { top: marginTop },
                       { left: marginLeft }, { height: height }]}
                         key={reminder.items[0].id}>
-                        <Text style={[styles.title, styles.textBold]} numberOfLines={1}>{time}</Text>
-                        <Text style={[styles.title, styles.textMedium]} numberOfLines={1} >{this.props.strings('calendar.reminderText', {count: reminder.items.length})}</Text>
+                        <Text style={[styles.title, styles.textBold, this.props.boldTextFont]} numberOfLines={1}>{time}</Text>
+                        <Text style={[styles.title, styles.textMedium, this.props.mediumTextFont]} numberOfLines={1} >{this.props.strings('calendar.reminderText', {count: reminder.items.length})}</Text>
                       </TouchableOpacity>
                     </TouchableWithoutFeedback>
                   )
@@ -592,7 +591,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   textMedium: {
-    marginBottom: 12,
+    marginBottom: 12
   },
   textRegular: {
     color: '#4a4a4a',
