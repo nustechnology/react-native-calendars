@@ -338,7 +338,7 @@ export default class AgendaView extends Component {
         }
       });
     }
-    return { ...markings, [this.props.selected]: { ...(markings[this.props.selected] || {}), ...{ selected: true } } };
+    return { ...markings, [this.props.selected]: { ...(markings[this.props.selected] || {}), ...{ selected: true, marked: true } } };
   }
 
   shouldComponentUpdate(nextProps, nextState) {
